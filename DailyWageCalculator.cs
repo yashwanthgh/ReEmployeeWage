@@ -14,15 +14,20 @@ namespace EmployeeWageRemastered
         readonly Random random = new();
         public void WageCalculator()
         {
-            int employeeWage;
-            int whichEmployee = random.Next(0, 2);
-            if(whichEmployee == 0)
+            int employeeWage = 0;
+            int whichEmployee = random.Next(0, 3);
+            switch (whichEmployee)
             {
-                employeeWage = DAILY_WAGE_PER_HOUR * FULL_TIME_EMPLOYEE_WORK_HOURS;
-            } else
-            {
-                employeeWage = DAILY_WAGE_PER_HOUR * PART_TIME_EMPLOYEE_WORK_HOURS;
-                Console.WriteLine($"Wage is {employeeWage}");
+                case 0:
+                    employeeWage = 0;
+                    break;
+                case 1:
+                    employeeWage = 1;
+                    employeeWage = FULL_TIME_EMPLOYEE_WORK_HOURS * DAILY_WAGE_PER_HOUR;
+                    break;
+                case 2:
+                    employeeWage = PART_TIME_EMPLOYEE_WORK_HOURS * DAILY_WAGE_PER_HOUR;
+                    break;
             }
             Console.WriteLine($"Wage is {employeeWage}");
         }
